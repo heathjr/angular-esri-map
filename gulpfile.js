@@ -96,7 +96,10 @@ gulp.task('build-js', function() {
 
 // lint then clean and build javascript
 gulp.task('build', function(callback) {
-  runSequence('lint', 'clean', 'build-core-js', 'build-js', 'ngdocs', callback);
+  //runSequence('lint', 'clean', 'build-core-js', 'build-js', 'ngdocs', callback);
+
+  // Core build not required for our purposes.
+  runSequence('lint', 'clean', 'build-js', 'ngdocs', callback);
 });
 
 // serve site and tests on local web server
@@ -209,4 +212,8 @@ gulp.task('ngdocs', [], function () {
 });
 
 // Default Task
-gulp.task('default', ['serve']);
+//gulp.task('default', ['serve']);
+
+// Server task not required for our purposes
+gulp.task("default", ["karma-once", "build"]);
+
