@@ -81,7 +81,7 @@
                     // layer is not yet loaded
                     // wait for load event, and then make layer object available
                     layer.on('load', function() {
-                        scope.$apply(function() {
+                        scope.$evalAsync(function() {
                             scope.layerCtrl.load()(layer);
                         });
                     });
@@ -91,7 +91,7 @@
             // call updateEnd handler (if any)
             if (attrs.updateEnd) {
                 layer.on('update-end', function(e) {
-                    scope.$apply(function() {
+                    scope.$evalAsync(function() {
                         scope.layerCtrl.updateEnd()(e);
                     });
                 });

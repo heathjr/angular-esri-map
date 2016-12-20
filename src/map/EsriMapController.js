@@ -192,7 +192,7 @@
                     // just set up a handler for the map load event (if any)
                     if (attrs.load) {
                         map.on('load', function() {
-                            scope.$apply(function() {
+                            scope.$evalAsync(function() {
                                 self.load()(map);
                             });
                         });
@@ -211,7 +211,7 @@
                         return;
                     }
                     self.inUpdateCycle = true;
-                    scope.$apply(function() {
+                    scope.$evalAsync(function() {
                         // update scope properties
                         updateCenterAndZoom(self, map);
                         $timeout(function() {
