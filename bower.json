@@ -19,7 +19,6 @@
   "ignore": [
     "**/.*",
     "app",
-    "src",
     "node_modules",
     "bower_components",
     "test",
